@@ -13,7 +13,7 @@ function App() {
       .padStart(3, "0")}`
   );
   const [requestDate] = useState(() =>
-    new Date().toISOString().slice(0, 10)
+    new Date().toLocaleDateString('en-CA')
   );
   const [requesterName, setRequesterName] = useState('');
   const [requesterProjectSol, setRequesterProjectSol] = useState('');
