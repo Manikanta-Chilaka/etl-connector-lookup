@@ -155,7 +155,7 @@ function App() {
       <div className="card">
         <header className="header">
           <img src={logo} alt="ETL Tool Logo" className="logo" />
-          <h1 className="title">Connector Lookup</h1>
+          <h1 className="title">One Entry Integration Model</h1>
           <p className="description">
             Fill out the request details and choose a Source/Target system.
           </p>
