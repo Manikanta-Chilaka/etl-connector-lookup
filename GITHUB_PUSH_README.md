@@ -70,3 +70,8 @@ Whenever you make changes to your code and want to update GitHub, follow these 3
 
 -   **Authentication**: If asked for a username and password, use your GitHub username and a **Personal Access Token** (not your password), or sign in via the browser prompt if available.
 -   **Branch Name**: If `main` doesn't exist, try `master`: `git push -u origin master`.
+-   **"Updates were rejected" Error**: This means the GitHub repo has files you don't have (like a README created during setup). Run this to fix it:
+    ```powershell
+    git pull origin master
+    git push origin master
+    ```
