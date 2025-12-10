@@ -187,7 +187,7 @@ function App() {
         <header className="header">
           <img src={logo} alt="ETL Tool Logo" className="logo" />
           <h1 className="title">One Entry Integration Model</h1>
-         
+
         </header>
 
         <form onSubmit={handleSubmit} className="request-form">
@@ -310,7 +310,6 @@ function App() {
             <div className="results-area">
               {!hasSelection ? (
                 <div className="empty-state">
-                  <img src={emptyStateImg} alt="Search" className="empty-image" />
                   <p>Select both a Source and a Target to view integrations.</p>
                 </div>
               ) : results.length > 0 ? (
