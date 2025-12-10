@@ -4,7 +4,7 @@ import logo from './assets/logo.png';
 import emptyStateImg from './assets/empty_state.png';
 
 function App() {
-  const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL_HERE'; // <--- PASTE YOUR URL HERE
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz9TFSS6OCY-Rt5VfNNEQ9l1EGe1_dVGblq6Bmp25UVoboXQx4wBWYQpW_8x8HrRhOt/exec'; // <--- PASTE YOUR URL HERE
 
   // --- 1. Request Metadata State ---
   const [requestId] = useState(() =>
@@ -154,7 +154,7 @@ function App() {
       // OR ensure your Apps Script returns proper CORS headers.
       // We'll use standard POST assuming the script (from README) handles CORS.
 
-      const response = await fetch('https://script.google.com/macros/s/AKfycbzpA85Y35CJ6MVb2xf8OuU3ax2DprVGC6B2TXNv55XiPa47QBx0lyKSOnT8p7eS_zp7/exec', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbz9TFSS6OCY-Rt5VfNNEQ9l1EGe1_dVGblq6Bmp25UVoboXQx4wBWYQpW_8x8HrRhOt/exec', {
         method: 'POST',
         // mode: 'no-cors', // Uncomment if you face CORS issues and don't need response data
         headers: {
@@ -187,9 +187,7 @@ function App() {
         <header className="header">
           <img src={logo} alt="ETL Tool Logo" className="logo" />
           <h1 className="title">One Entry Integration Model</h1>
-          <p className="description">
-            Fill out the request details and choose a Source/Target system.
-          </p>
+         
         </header>
 
         <form onSubmit={handleSubmit} className="request-form">
