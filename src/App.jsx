@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { integrationMatrix } from './data';
 import logo from './assets/logo.png';
 import emptyStateImg from './assets/empty_state.png';
@@ -56,6 +56,27 @@ function App() {
   }, [selectedSource, selectedTarget]);
 
   const hasSelection = selectedSource && selectedTarget;
+
+
+
+  // --- Click Outside to Close Dropdowns ---
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // If the click is NOT inside a custom-multiselect container
+      if (!event.target.closest('.custom-multiselect')) {
+        // Close all open dropdowns
+        const dropdowns = document.querySelectorAll('.multiselect-dropdown');
+        dropdowns.forEach((dropdown) => {
+          dropdown.classList.remove('show');
+        });
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   // --- Handlers ---
 
