@@ -243,34 +243,58 @@ function App() {
             <div className="controls">
               <div className="control-group">
                 <label htmlFor="source-select" className="label">Source System *</label>
-                <select
-                  id="source-select"
-                  className={`select ${formErrors.selectedSource ? 'error' : ''}`}
-                  value={selectedSource}
-                  onChange={(e) => setSelectedSource(e.target.value)}
-                >
-                  <option value="">Select Source...</option>
-                  {sources.map((source) => (
-                    <option key={source} value={source}>{source}</option>
-                  ))}
-                </select>
-                {formErrors.selectedSource && <span className="error-text">{formErrors.selectedSource}</span>}
+                <div className="custom-multiselect">
+                  <div
+                    className="multiselect-trigger"
+                    onClick={() => document.getElementById('source-dropdown').classList.toggle('show')}
+                  >
+                    {selectedSource || "Select Source..."}
+                    <span className="arrow">▼</span>
+                  </div>
+                  <div id="source-dropdown" className="multiselect-dropdown">
+                    {sources.map((source) => (
+                      <div
+                        key={source}
+                        className="dropdown-item"
+                        onClick={() => {
+                          setSelectedSource(source);
+                          document.getElementById('source-dropdown').classList.remove('show');
+                        }}
+                        style={{ cursor: 'pointer', backgroundColor: selectedSource === source ? '#e0f2fe' : '' }}
+                      >
+                        {source}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
 
               <div className="control-group">
                 <label htmlFor="target-select" className="label">Target System *</label>
-                <select
-                  id="target-select"
-                  className={`select ${formErrors.selectedTarget ? 'error' : ''}`}
-                  value={selectedTarget}
-                  onChange={(e) => setSelectedTarget(e.target.value)}
-                >
-                  <option value="">Select Target...</option>
-                  {targets.map((target) => (
-                    <option key={target} value={target}>{target}</option>
-                  ))}
-                </select>
-                {formErrors.selectedTarget && <span className="error-text">{formErrors.selectedTarget}</span>}
+                <div className="custom-multiselect">
+                  <div
+                    className="multiselect-trigger"
+                    onClick={() => document.getElementById('target-dropdown').classList.toggle('show')}
+                  >
+                    {selectedTarget || "Select Target..."}
+                    <span className="arrow">▼</span>
+                  </div>
+                  <div id="target-dropdown" className="multiselect-dropdown">
+                    {targets.map((target) => (
+                      <div
+                        key={target}
+                        className="dropdown-item"
+                        onClick={() => {
+                          setSelectedTarget(target);
+                          document.getElementById('target-dropdown').classList.remove('show');
+                        }}
+                        style={{ cursor: 'pointer', backgroundColor: selectedTarget === target ? '#e0f2fe' : '' }}
+                      >
+                        {target}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
 
