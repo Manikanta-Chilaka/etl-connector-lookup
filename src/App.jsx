@@ -120,6 +120,9 @@ function App() {
     setFormErrors({});
     setSubmitStatus('submitting');
 
+    // Get the integration details from the first result (if available)
+    const integrationDetail = results.length > 0 ? results[0] : {};
+
     const payload = {
       requestId,
       requestDate,
@@ -129,6 +132,13 @@ function App() {
       desiredOutcomeBusinessValue: desiredOutcome,
       sourceSystem: selectedSource,
       targetSystem: selectedTarget,
+      // Integration details derived from selection
+      etlTool: integrationDetail.etlTool || 'N/A',
+      sourceConnector: integrationDetail.sourceConnector || 'N/A',
+      sourceProtocol: integrationDetail.sourceProtocol || 'N/A',
+      targetConnector: integrationDetail.targetConnector || 'N/A',
+      targetProtocol: integrationDetail.targetProtocol || 'N/A',
+
       integrationFrequency,
       integrationFrequencyOther: integrationFrequency === 'Other (Specify)' ? integrationFrequencyOther : '',
       dataTransformationRequirements, // Array
